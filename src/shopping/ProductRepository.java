@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class ProductRepository {
 	
 	private ArrayList<Product> listOfProducts = new ArrayList<>();
+	private static ProductRepository instance = new ProductRepository();
 	
 	public ProductRepository() {
 		Product phone = new Product("P1234", "iPhone 6s", 800000);
@@ -30,6 +31,16 @@ public class ProductRepository {
 		listOfProducts.add(phone);
 		listOfProducts.add(noteBook);
 		listOfProducts.add(tablet);
+	}
+	
+	// 객체 instance에 대한 get() 메서드
+	public static ProductRepository getInstance() {
+		return instance;
+	}
+	
+	// 상품 추가
+	public void addProduct(Product product) {
+		listOfProducts.add(product);
 	}
 	
 	// 목록 조회

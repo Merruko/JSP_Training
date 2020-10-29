@@ -39,6 +39,7 @@
 			if(file != null){
 			out.println("파일 크기 : " + file.length() + "<br>");
 			}
+			out.println("파일 경로 : " + file.getPath());
 		}
 	%>
 	
