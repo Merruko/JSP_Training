@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="shopping.Product" %>
+<%@ page import="shopping.Product, shopping.ProductRepository" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,6 @@
 <title>상품 상세 정보</title>
 <link rel="stylesheet" href="../RESOURCES/boot_strap/css/bootstrap.css">
 </head>
-<jsp:useBean id="productDAO" class="shopping.ProductRepository" scope="session"/>
 <body>
 
 	<jsp:include page="menu.jsp"/>
@@ -22,11 +21,16 @@
 	
 	<%
 		String id = request.getParameter("id");
+		ProductRepository productDAO = ProductRepository.getInstance();
 		Product product = productDAO.getProductById(id);
 	%>
 	
 	<div class="container">
 		<div class="row">
+			<div class="col-md-5">
+				<img src="../RESOURCES/main_images/<%=product.getFilename() %>" 
+					 style="width: 100%">
+			</div>
 			<div class="col-md-6">
 				<h3><%=product.getPname() %></h3>
 				<p><%=product.getDescription() %>

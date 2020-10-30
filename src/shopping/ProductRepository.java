@@ -13,6 +13,7 @@ public class ProductRepository {
 		phone.setManufacturer("Apple");
 		phone.setUnitsInstock(1000);
 		phone.setCondition("New");
+		phone.setFilename("P1234.png");
 		
 		Product noteBook = new Product("P1235", "gram", 1500000);
 		noteBook.setDescription("13.3-inch, IPS LED display, 5rd Generate");
@@ -20,6 +21,7 @@ public class ProductRepository {
 		noteBook.setManufacturer("LG");
 		noteBook.setUnitsInstock(1000);
 		noteBook.setCondition("Refurbished");
+		noteBook.setFilename("P1235.png");
 		
 		Product tablet = new Product("P1236", "Galaxy Tab S", 900000);
 		tablet.setDescription("212.8*125.6*6.6mm, Super AMOLED display, Octa");
@@ -27,6 +29,7 @@ public class ProductRepository {
 		tablet.setManufacturer("SAMSUNG");
 		tablet.setUnitsInstock(1000);
 		tablet.setCondition("Old");
+		tablet.setFilename("P1236.png");
 		
 		listOfProducts.add(phone);
 		listOfProducts.add(noteBook);

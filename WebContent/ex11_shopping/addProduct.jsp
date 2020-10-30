@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!-- 다른 폴더에 있는 사진으로 상품 등록 한 후, 
+	main_images 폴더 리프레쉬하고 새로고침까지 해줘야 뜸 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +19,8 @@
 			</div>
 		</div>
 		<div class="container">
-			<form name="newProduct" action="addProduct-process.jsp" class="form-horizontal" method="post">
+			<form name="newProduct" action="addProduct-process.jsp" 
+			class="form-horizontal" method="post" enctype="multipart/form-data">
 				<div class="form-group row">
 					<label class="col-sm-2">상품코드</label>
 					<div class="col-sm-3"> 
@@ -64,6 +69,12 @@
 						<input type ="radio" name="condition" value="new" >신규제품
 						<input type ="radio" name="condition" value="Old" >중고제품
 						<input type ="radio" name="condition" value="Refurbished" >재생제품
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-2">이미지</label>
+					<div class="col-sm-5"> 
+						<input type ="file" name="productImage" class="form-control">
 					</div>
 				</div>
 				<div class="form-group row">
