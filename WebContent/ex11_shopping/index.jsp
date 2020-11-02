@@ -24,7 +24,8 @@
 	
 	<div class="container">
 		<div class="text-center">
-			<a href="products.jsp">상품 목록</a>
+			<p><a href="products.jsp">상품 목록</a></p>
+			<p><a href="addProduct.jsp">상품 추가</a></p>
 			<h3><%=tagline %></h3>
 			<%
 				response.setIntHeader("Refresh", 5);  //5초마다 시각이 갱신됨
