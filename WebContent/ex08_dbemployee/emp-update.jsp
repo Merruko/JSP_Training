@@ -22,6 +22,7 @@ tr, td{border: 1px solid #222; padding: 10px;}
 	border: 1px solid #333; border-radius: 2px; font-size: 0.9em;
 	text-decoration: none; background: #eee; padding: 2px 5px;
 }
+input[type="text"],input[type="password"],input[type="date"] {width: 150px; height: 20px;}
 
 </style>
 

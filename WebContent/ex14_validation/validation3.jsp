@@ -50,7 +50,7 @@
       <p>아이디 : <input type="text" name="id">
       <p>비밀번호 : <input type="password" name="pw">
       <p><input type="button" value="로그인" onclick="checkLogin()">
-   </form>
+    </form>
 
 </body>
 </html>
