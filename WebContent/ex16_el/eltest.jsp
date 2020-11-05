@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>EL 예제</title>
+<!-- EL = Expression Language -->
 </head>
 <body>
 	<h3>문자, 숫자 데이터 표현하기</h3>
