@@ -7,11 +7,9 @@
 <meta charset="UTF-8">
 <title>Core 태그</title>
 </head>
-<%
-	String number = request.getParameter("number");
-%>
+<% String number = request.getParameter("number"); %>
 <body>
-	<c:set var="number" value="<%=number %>"/>
+	<c:set var="number" value="<%=number %>"/>	
 	<c:choose>
 		<c:when test="${number%2==0}">
 			<c:out value="${number}" /> 은(는) 짝수입니다.

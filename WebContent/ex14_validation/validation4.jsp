@@ -10,8 +10,8 @@
 
 	function checkMember(){
 		var regExId = /^[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]/;   //문자로 시작해야 함
-		var regExPwd = /^[0-9]*$/;               //숫자만 사용
-		var regExName = /^[가-힣]*$/;            //한글만 사용
+		var regExPwd = /^[0-9]*$/;             	    //숫자만 사용
+		var regExName = /^[가-힣]*$/;         	    //한글만 사용
 		var regExPhone = /^\d{3}-\d{3,4}-\d{4}$/;   //3자리-3~4자리-4자리
          
 		var form = document.Member;

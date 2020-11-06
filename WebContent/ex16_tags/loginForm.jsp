@@ -29,7 +29,7 @@
 	<div id="container">
 		<h2>회원 가입</h2>
 		<hr>
-		<form action="member2-el.jsp" method="post">
+		<form action="result.jsp" method="post">
 			<table>
 				<tr>
 					<td>아이디</td>
@@ -38,10 +38,6 @@
 				<tr>
 					<td>패스워드</td>
 					<td><input type="password" name="pwd"></td>				
-				</tr>
-				<tr>
-					<td>이름</td>
-					<td><input type="text" name="name"></td>				
 				</tr>
 				<tr>
 					<td colspan="2">
