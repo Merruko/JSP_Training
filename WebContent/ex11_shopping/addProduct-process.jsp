@@ -1,21 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.Enumeration" %>
-<%@ page import="shopping.Product, shopping.ProductRepository" %>
-
-<%@ page import="com.oreilly.servlet.MultipartRequest" %>
-<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+    pageEncoding="UTF-8" import="java.util.*" %>
+    
+<%@ page import="com.oreilly.servlet.*"%>
+<%@ page import="com.oreilly.servlet.multipart.*"%>
+<%@ page import="shopping.Product"%>
+<%@ page import="shopping.ProductRepository"%>
 
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	String realFolder = "C:\\workspace\\JSP_Training\\WebContent\\RESOURCES\\main_images";
-	int maxSize = 5 * 1024 * 1024;
-	String encType = "UTF-8";
-	DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
-	
-	MultipartRequest multi = new MultipartRequest(request, realFolder, 
-												maxSize, encType, policy);
-	
+	String filename = "";
+	String realFolder = "C:\\workspace\\JSP_Training\\WebContent\\RESOURCES\\main_images"; //웹 어플리케이션상의 절대 경로
+	String encType = "UTF-8"; //인코딩 타입
+	int maxSize = 5 * 1024 * 1024; //최대 업로드될 파일의 크기 5Mb
+
+	MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+
 	String productId = multi.getParameter("productId");
 	String name = multi.getParameter("name");
 	String unitPrice = multi.getParameter("unitPrice");
@@ -26,23 +26,27 @@
 	String condition = multi.getParameter("condition");
 	
 	Integer price;
-	if(unitPrice.isEmpty())
+
+	if (unitPrice.isEmpty())
 		price = 0;
 	else
-		price = Integer.parseInt(unitPrice);
+		price = Integer.valueOf(unitPrice);
 
 	long stock;
-	if(unitsInStock.isEmpty())
+
+	if (unitsInStock.isEmpty())
 		stock = 0;
 	else
 		stock = Long.valueOf(unitsInStock);
+
 	
-	Enumeration<String> files = multi.getFileNames();
-	String fname = files.nextElement();
+	Enumeration files = multi.getFileNames();
+	String fname = (String) files.nextElement();
 	String fileName = multi.getFilesystemName(fname);
 	
-	ProductRepository dao = ProductRepository.getInstance();
 	
+	ProductRepository dao = ProductRepository.getInstance();
+
 	Product newProduct = new Product();
 	newProduct.setProductId(productId);
 	newProduct.setPname(name);
@@ -50,11 +54,11 @@
 	newProduct.setDescription(description);
 	newProduct.setManufacturer(manufacturer);
 	newProduct.setCategory(category);
-	newProduct.setUnitsInstock(stock);
+	newProduct.setUnitsInStock(stock);
 	newProduct.setCondition(condition);
 	newProduct.setFilename(fileName);
-	
+
 	dao.addProduct(newProduct);
+
 	response.sendRedirect("products.jsp");
-	
 %>
