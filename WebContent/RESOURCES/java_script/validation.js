@@ -1,58 +1,28 @@
-function CheckAddProduct() {
-
-	var productId = document.getElementById("productId");
-	var name = document.getElementById("name");
-	var unitPrice = document.getElementById("unitPrice");
-	var unitsInStock = document.getElementById("unitsInStock");
+function checkForm(){
+	var form = document.regForm;
+	var id = form.memberId.value;
+	var pw = form.passwd.value;
+	var pw2 = form.passwd_cf.value;
+	var name = form.name.value;
 	
-	// 상품아아디 체크
-	if (!check(/^P[0-9]{4,11}$/, productId,
-			"[상품 코드]\nP와 숫자를 조합하여 5~12자까지 입력하세요\n첫 글자는 반드시 P로 시작하세요"))
-		return false;
-		
-	// 상품명 체크
-	if (name.value.length < 4 || name.value.length > 12) {
-		alert("[상품명]\n최소 4자에서 최대 50자까지 입력하세요");
-		name.select();
-		name.focus();
-		return false;
-	}
+	var regExId = /^[0-9]{4}$/;		//4자리의 숫자만 가능 
 	
-	// 상품 가격 체크
-	if (unitPrice.value.length == 0 || isNaN(unitPrice.value)) {
-		alert("[가격]\n숫자만 입력하세요");
-		unitPrice.select();
-		unitPrice.focus();
+	if(!regExId.test(id) || id==""){
+		alert("아이디는 4자리 숫자만 가능합니다.");
+		form.memberId.focus();
 		return false;
+	}else if(pw.length < 5 || pw.length > 12){
+		alert("비밀번호는 5자에서 12자까지 입력해주세요");
+		form.passwd.select();
+		return false;
+	}else if(pw != pw2){
+		alert("비밀번호를 동일하게 입력하세요");
+		form.passwd_cf.select();
+	}else if(name == ""){
+		alert("이름은 필수입력 사항입니다.");
+		form.name.focus();
+		return false;
+	}else{
+		form.submit();
 	}
-
-	if (unitPrice.value < 0) {
-		alert("[가격]\n음수를 입력할 수 없습니다");
-		unitPrice.select();
-		unitPrice.focus();
-		return false;
-	} else if (!check(/^\d+(?:[.]?[\d]?[\d])?$/, unitPrice,
-			"[가격]\n소수점 둘째 자리까지만 입력하세요"))
-		return false;
-
-	// 재고 수 체크
-	if (isNaN(unitsInStock.value)) {
-		alert("[재고 수]\n숫자만 입력하세요");
-		unitsInStock.select();
-		unitsInStock.focus();
-		return false;
-	}
-
-	function check(regExp, e, msg) {
-
-		if (regExp.test(e.value)) {
-			return true;
-		}
-		alert(msg);
-		e.select();
-		e.focus();
-		return false;
-	}
-
-	 document.newProduct.submit()
 }

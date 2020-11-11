@@ -3,6 +3,7 @@
     
 <%@ page import="shopping.Product"%>
 <%@ page import="shopping.ProductRepository"%>
+<%@ page errorPage="exceptionNoProductId.jsp" %>
 
 <!DOCTYPE html>
 <html>

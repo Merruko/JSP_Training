@@ -40,5 +40,4 @@ public class GetCookie extends HttpServlet {
 			}
 		}
 	}
-
 }

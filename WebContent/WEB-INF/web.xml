@@ -21,7 +21,7 @@
 	<servlet-name>second</servlet-name>
 	<url-pattern>/second</url-pattern>
 	</servlet-mapping>
-  
+	
     <!-- 세큐리티 -->
 
 	<security-role>
@@ -33,7 +33,7 @@
 		<web-resource-collection>
 			<web-resource-name>WebMarket</web-resource-name>
 			<description></description>
-			<url-pattern>/ex11_shopping/addProduct.jsp</url-pattern>
+			<url-pattern>/exPj_shopping/addProduct.jsp</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<description>권한 관리자명</description>
@@ -43,9 +43,27 @@
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
-			<form-login-page>/ex11_shopping/login.jsp</form-login-page>
-			<form-error-page>/ex11_shopping/login_failed.jsp</form-error-page>
+			<form-login-page>/exPj_shopping/login.jsp</form-login-page>
+			<form-error-page>/exPj_shopping/login_failed.jsp</form-error-page>
 		</form-login-config>
 	</login-config>
 	
+	<!-- 예외 처리 -->
+	
+	<display-name>Exception</display-name>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/ex16_exception/errorCodePrint.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/ex16_exception/tryCatch-error.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/exPj_shopping/exceptionNoPage.jsp</location>
+	</error-page>
+  
 </web-app>

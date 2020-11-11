@@ -1,27 +1,26 @@
-package employee;
+package member;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
-public class Employee implements Serializable{ // 클래스 직렬화
+public class Member implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private int companyId;
+	private int memberId;
 	private String passwd;
 	private String name;
 	private Date joinDate;
-	
-	public Employee() {
-		
+	private String gender;
+
+	public Member() {}
+
+	public int getMemberId() {
+		return memberId;
 	}
 
-	public int getCompanyId() {
-		return companyId;
-	}
-
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
 	}
 
 	public String getPasswd() {
@@ -47,5 +46,12 @@ public class Employee implements Serializable{ // 클래스 직렬화
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
-
+	
+	public String getGender() {
+		return gender;
+	}
+	
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 }
