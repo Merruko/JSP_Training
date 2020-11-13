@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>회원 관리 사이트</title>
 <style type="text/css">
+	body{background: black; color: white;}
 	#container{width: 600px; margin: 0 auto; text-align: center;}
 	table{margin: 0 auto; width: 400px; border-collapse: collapse; text-align: center;}
 	tr, td{border: 1px solid #222; padding: 10px;}

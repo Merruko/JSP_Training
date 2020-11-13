@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="member.Member" %>
     
-<%@ page import="member.Member" %>
-
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <!DOCTYPE html>
@@ -11,6 +9,7 @@
 <meta charset="UTF-8">
 <title>회원 관리 사이트</title>
 <style type="text/css">
+	body{background: black; color: white;}
 	#container{width: 600px; margin: 0 auto; text-align: center;}
 	table{margin: 0 auto; width: 400px; border-collapse: collapse; text-align: center;}
 	tr, td{border: 1px solid #222; padding: 10px;}
@@ -64,11 +63,11 @@
 					<td>성별</td>
 					<td>
 						<% if(member.getGender().equals("남")){ %>
-						<input type="radio" name="gender" value="남" onclick="return(false);" checked>남
-						<input type="radio" name="gender" value="여" onclick="return(false);">여
+						<input type="radio" name="gender" value="남" checked>남
+						<input type="radio" name="gender" value="여">여
 						<% }else{ %>
-						<input type="radio" name="gender" value="남" onclick="return(false);">남
-						<input type="radio" name="gender" value="여" onclick="return(false);" checked>여
+						<input type="radio" name="gender" value="남">남
+						<input type="radio" name="gender" value="여" checked>여
 						<% } %>
 					</td>
 				</tr>

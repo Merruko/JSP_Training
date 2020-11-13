@@ -4,5 +4,5 @@
 	footer{margin-left:150px; padding:15px;}
 </style>
 <footer>
-	<p>&copy; Guro Digital Complex
+	<p>&copy; Majo No Takkyuubin
 </footer>

@@ -7,12 +7,13 @@
 <meta charset="UTF-8">
 <title>회원 관리 사이트</title>
 <style type="text/css">
+	body{background: black; color: white;}
 	#container{width: 600px; margin: 0 auto; text-align: center;}
 	table{margin: 0 auto; width: 400px; border-collapse: collapse; text-align: center;}
 	tr, td{border: 1px solid #222; padding: 10px;}
 	input[type="text"], [type="password"] {width: 200px; height: 20px;}
 </style>
-<script src="../RESOURCES/java_script/validation.js"></script>
+<script src="../RESOURCES/java_script/validation-member.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -22,11 +23,11 @@
 				<table>
 					<tr>
 						<td>회원번호</td>
-						<td><input type="text" name="memberId"></td>
+						<td><input type="text" name="memberId" placeholder="숫자 4자리만 입력"></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" name="passwd"></td>
+						<td><input type="password" name="passwd" placeholder="5자 이상 12자 이하 입력"></td>
 					</tr>
 					<tr>
 						<td>비밀번호 확인</td>

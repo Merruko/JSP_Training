@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel ="stylesheet" href ="../RESOURCES/boot_strap/css/bootstrap.min.css" />
-<title>상품 목록</title>
+<title>쇼핑몰</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />

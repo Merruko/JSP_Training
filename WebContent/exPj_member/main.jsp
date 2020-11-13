@@ -7,15 +7,18 @@
 <meta charset="UTF-8">
 <title>회원 관리 사이트</title>
 </head>
+
 <style>
+	body{background: black; color: white;}
 	#container{width: 100%; margin: 0 auto; text-align: center;}
-	.title{height: 140px; font-size: 30px; background: #eee; line-height: 120px; color: #333;}
+	.title{height: 140px; font-size: 30px; background: red; line-height: 120px; color: black;}
 </style>
+
 <body>
 <jsp:include page="menu.jsp" />
 	<div id="container">
 		<div class="title">
-			<h1>Welcome to kiki's management service</h1>
+			<h1>Welcome to Kiki's Management Service</h1>
 		</div>
 		<div>
 			<p><img src="../RESOURCES/main_images/kiki.jpg" width="650" height="350" alt="friends">
@@ -38,6 +41,6 @@
 			%>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+<jsp:include page="footer.jsp" />
 </body>
 </html>

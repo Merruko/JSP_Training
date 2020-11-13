@@ -49,21 +49,98 @@
 	</login-config>
 	
 	<!-- 예외 처리 -->
+	<!-- 따로 에러페이지 임포트 안해주면 해당 코드 오류는 이제 무조건 저 페이지들만 뜸 -->
+	<!-- 500은 따로 임포트 해주면 설정한 특정 페이지 뜨게 할 수 있는데 404는 안됨 -->
 	
-	<display-name>Exception</display-name>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/ex16_exception/errorCodePrint.jsp</location>
-	</error-page>
+	<display-name>Exception</display-name>  
 	
-	<error-page>
-		<error-code>500</error-code>
-		<location>/ex16_exception/tryCatch-error.jsp</location>
-	</error-page>
+	<!-- 404 : 주소의 페이지 파일명 자체가 잘못돼서 연결할 수 없을때 -->
 	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/exPj_shopping/exceptionNoPage.jsp</location>
 	</error-page>
-  
+	
+	<!-- 500 : 주소의 회원번호나 상품번호 등 ? 이후 참조값이 잘못돼서 연결할 수 없을때 --> 
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/exPj_shopping/exceptionNoProductId.jsp</location>
+	</error-page>
+	
+	<!-- 폼 인증 필터 처리 -->
+	
+	<filter>
+		<filter-name>Filter</filter-name>
+		<filter-class>filter.AuthenFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Filter</filter-name>
+		<url-pattern>/ex19_filter/filter-process.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- 로그인 인증 필터 처리 -->
+	
+	<filter>
+		<filter-name>Filter2</filter-name>
+		<filter-class>filter.InitParamFilter</filter-class>
+		<init-param>
+			<param-name>param1</param-name>
+			<param-value>admin</param-value>
+		</init-param>
+		<init-param>
+			<param-name>param2</param-name>
+			<param-value>1234</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>Filter2</filter-name>
+		<url-pattern>/ex19_filter/filter2-process.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- 로그인 인증을 파일로 기록 -->
+	
+	<filter>
+		<filter-name>Filter3</filter-name>
+		<filter-class>filter.LogFileFilter</filter-class>
+		<init-param>
+			<param-name>filename</param-name>
+			<param-value>C:\\logs\\monitor.log</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>Filter3</filter-name>
+		<url-pattern>/ex19_filter/filter2-process.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- WebMarket 필터 -->
+	
+	<filter>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>shopping.LogFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/exPj_shopping/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- WebMarket 필터 : 로그 파일 기록 -->
+	
+	<filter>
+		<filter-name>LogFileFilter</filter-name>
+		<filter-class>shopping.LogFileFilter</filter-class>
+		<init-param>
+			<param-name>filename</param-name>
+			<param-value>C:\\logs\\webmarket.log</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>LogFileFilter</filter-name>
+		<url-pattern>/exPj_shopping/*</url-pattern>
+	</filter-mapping>
+	
 </web-app>

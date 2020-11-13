@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 아이디 오류</title>
+<title>쇼핑몰</title>
 <link rel="stylesheet" href="../RESOURCES/boot_strap/css/bootstrap.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
    
       <div class="jumbotron">
          <div class="container">
-            <h2 class="alert alert-danger">요청하신 페이지를 찾을 수 없습니다.</h2>
+            <h2 class="alert alert-danger">요청하신 페이지를 찾을 수 없습니다. (Code : 404)</h2>
          </div>
       </div>
          <div class="container">

@@ -10,9 +10,9 @@
 <style type="text/css">
 	nav{margin-top: 30px; text-align: right; margin-right:30px;}
 	nav ul{list-style-type: none;}
-	nav ul li{display: inline; padding: 10px 15px; margin-right: 20px; border-top: 3px solid #222; }
-	nav ul li a{text-decoration: none; color: black;}
-	nav ul li a:hover{background: rgb(196, 196, 196);}
+	nav ul li{display: inline; padding: 10px 15px; margin-right: 20px; border-top: 3px solid red;}
+	nav ul li a{text-decoration: none; color: white;}
+	nav ul li a:hover{background: red;}
 </style>
 <body>
 	<%

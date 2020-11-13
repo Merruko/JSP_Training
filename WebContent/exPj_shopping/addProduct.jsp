@@ -6,8 +6,8 @@
 <html>
 <head>
 <link rel ="stylesheet" href ="../RESOURCES/boot_strap/css/bootstrap.min.css" />
-<script type ="text/javascript" src ="../RESOURCES/java_script/validation.js"></script>
-<title>상품 등록</title>
+<script type ="text/javascript" src ="../RESOURCES/java_script/validation-shopping.js"></script>
+<title>쇼핑몰</title>
 </head>
 <body>
 	<fmt:setLocale value='<%= request.getParameter("language") %>'/>
@@ -70,7 +70,7 @@
 			<div class="form-group row">
 				<label class="col-sm-2"><fmt:message key="condition" /></label>
 				<div class="col-sm-5">
-					<input type="radio" name="condition" value="New " ><fmt:message key="condition_New" />
+					<input type="radio" name="condition" value="New" ><fmt:message key="condition_New" />
 					<input type="radio" name="condition" value="Old" ><fmt:message key="condition_Old" /> 
 					<input type="radio" name="condition" value="Refurbished" ><fmt:message key="condition_Refurbished" />
 				</div>
