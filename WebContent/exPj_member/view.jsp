@@ -78,8 +78,7 @@
 					if(dbId == sessionId){	// id가 정수형이므로 비교(==) 사용
 				%>
 				    <input type="button" value="수정" onClick="location.href='update.jsp?memberId=<%=member.getMemberId() %>'">
-				    <input type="button" value="탈퇴" onClick="location.href='delete.jsp?memberId=<%=member.getMemberId() %>'; return confirm('정말로 탈퇴하시겠습니까?');">
-				
+				    <input type="button" value="탈퇴" onClick="if(confirm('정말로 탈퇴하시겠습니까?')){location.href='delete.jsp?memberId=<%=member.getMemberId() %>';}">
 				<% } %>
 				</td>
 			</tr>
