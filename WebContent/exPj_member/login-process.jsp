@@ -13,7 +13,7 @@
 <jsp:setProperty property="*" name="memDAO"/>
 
 <%
-	int id = member.getMemberId();
+	String id = member.getMemberId();
 	String pwd = member.getPasswd();
 	int result = memDAO.login(id, pwd);
 	

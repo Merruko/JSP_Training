@@ -10,7 +10,7 @@
 <jsp:setProperty property="*" name="memDAO"/>
 
 <%
-	int memId = Integer.parseInt(request.getParameter("memberId"));
+	String memId = request.getParameter("memberId");
 	if(memDAO.delete(memId)){
 		response.sendRedirect("result.jsp?");
 	}

@@ -1,3 +1,4 @@
+<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="member.Member" %>
 
@@ -12,7 +13,7 @@
 <style type="text/css">
 	body{background: black; color: white;}
 	#container{width: 600px; margin: 0 auto; text-align: center;}
-	table{margin: 0 auto; width: 500px; border-collapse: collapse; text-align: center;}
+	table{margin: 0 auto; width: 550px; border-collapse: collapse; text-align: center;}
 	tr,td{border: 1px solid #222; padding: 10px;}
 	.font{font-size: 1.1em;}
 	.button{border: 1px solid #333; border-radius: 2px; padding: 2px 5px;
@@ -28,9 +29,9 @@
 <body>
 	<jsp:include page="menu.jsp"></jsp:include>
 	<%
-		int sessionId = 0;
+		String sessionId = null;
 		if(session.getAttribute("sessionId") != null){
-			sessionId = (Integer)session.getAttribute("sessionId");
+			sessionId = (String)session.getAttribute("sessionId");
 		}else{
 			response.sendRedirect("main.jsp");
 		}
@@ -40,12 +41,18 @@
 		<hr>
 		<table>
 			<tr>
-				<td>회원번호</td><td>비밀번호</td><td>이름</td><td>성별</td><td>가입일</td><td>회원보기</td>
+				<td>아이디</td><td>비밀번호</td><td>이름</td><td>성별</td><td>가입일</td><td>회원보기</td>
 			</tr>
 			<% for(Member member : memDAO.getListAll()) { %>
 			<tr>
 				<td><%=member.getMemberId() %></td>
+				<%
+					String dbId = member.getMemberId();
+					if(sessionId.equals(dbId)){
+				%>
 				<td><%=member.getPasswd() %></td>
+				<% } else { %>
+				<td><% out.println("*****"); } %>
 				<td><%=member.getName() %></td>
 				<td><%=member.getGender() %></td>
 				<td><%=member.getJoinDate() %></td>

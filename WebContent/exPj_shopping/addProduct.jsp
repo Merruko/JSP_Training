@@ -6,7 +6,7 @@
 <html>
 <head>
 <link rel ="stylesheet" href ="../RESOURCES/boot_strap/css/bootstrap.min.css" />
-<script type ="text/javascript" src ="../RESOURCES/java_script/validation-shopping.js"></script>
+<script type ="text/javascript" src ="../RESOURCES/java_script/validation-shop.js"></script>
 <title>쇼핑몰</title>
 </head>
 <body>

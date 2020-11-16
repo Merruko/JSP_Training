@@ -21,7 +21,7 @@
 <jsp:setProperty property="*" name="memDAO"/>
 
 <%
-	int memId = Integer.parseInt(request.getParameter("memberId"));
+	String memId = request.getParameter("memberId");
 	Member member = memDAO.getDB(memId);
 %>
 
@@ -44,7 +44,7 @@
 			  method="post" onsubmit="return checkPwd()">
 			<table>
 				<tr>
-					<td>회원번호</td>
+					<td>아이디</td>
 					<td><input type="text" name="memberId" value="<%=member.getMemberId()%>" style="background-color:grey" readonly></td>
 				</tr>
 				<tr>
@@ -82,7 +82,7 @@
 						<input type="button" value="취소" onclick="history.back(-1);">
 					</td>
 				</tr>
-			</table>
+			</table>	
 		</form>			
 	</div>
 </body>

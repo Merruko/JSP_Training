@@ -21,15 +21,15 @@
 <jsp:useBean id="memDAO" class="member.MemberDAO" scope="application" />
 <jsp:setProperty property="*" name="memDAO"/>
 <%
-	int memId = Integer.parseInt(request.getParameter("memberId"));
+	String memId = request.getParameter("memberId");
 	Member member = memDAO.getDB(memId);
 %>
 <body>
 	<jsp:include page="menu.jsp" />
 	<%
-		int sessionId = 0;
+		String sessionId = null;
 		if(session.getAttribute("sessionId") != null){
-			sessionId = (Integer)session.getAttribute("sessionId");
+			sessionId = (String)session.getAttribute("sessionId");
 		}else{
 			response.sendRedirect("main.jsp");
 		}
@@ -39,7 +39,7 @@
 		<hr>
 		<table>
 			<tr>
-				<td>회원번호</td>
+				<td>아이디</td>
 				<td><input type="text" name="memberId" style="background-color:grey" value="<%=member.getMemberId()%>" readonly></td>
 			</tr>
 			<tr>
@@ -74,8 +74,8 @@
 				<td colspan="2">
 				    <input type="button" value="목록" onClick="location.href='list.jsp'">
 				<%
-					int dbId = member.getMemberId();
-					if(dbId == sessionId){	// id가 정수형이므로 비교(==) 사용
+					String dbId = member.getMemberId();
+					if(sessionId.equals(dbId)){
 				%>
 				    <input type="button" value="수정" onClick="location.href='update.jsp?memberId=<%=member.getMemberId() %>'">
 				    <input type="button" value="탈퇴" onClick="if(confirm('정말로 탈퇴하시겠습니까?')){location.href='delete.jsp?memberId=<%=member.getMemberId() %>';}">

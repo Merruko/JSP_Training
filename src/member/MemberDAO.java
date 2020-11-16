@@ -2,7 +2,6 @@ package member;
 
 import java.sql.Connection;
 import java.sql.Date; // Memeber 클래스에서는 java.util이고 DAO는 java.sql 으로 하는게 맞는듯 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException; // 예외처리 
@@ -70,10 +69,10 @@ public class MemberDAO {
 	// 사원 정보 추가 
 	public void addMember(Member member) {
 		connDB();
-		String sql = "INSERT INTO t_member VALUES (?, ?, ?, ?, SYSDATE)";
+		String sql = "INSERT INTO t_member (memberId, passwd, name, gender, joinDate) VALUES (?, ?, ?, ?, SYSDATE)";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, member.getMemberId());
+			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getPasswd());
 			pstmt.setString(3, member.getName());
 			pstmt.setString(4, member.getGender());
@@ -89,12 +88,12 @@ public class MemberDAO {
 	public ArrayList<Member> getListAll(){
 		ArrayList<Member> list = new ArrayList<>();
 		connDB();
-		String sql = "SELECT * FROM t_member ORDER BY memberId";
+		String sql = "SELECT * FROM t_member ORDER BY joinDate";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int id = rs.getInt("memberId");
+				String id = rs.getString("memberId");
 				String pw = rs.getString("passwd");
 				String name = rs.getString("name");
 				Date jDate = rs.getDate("joinDate");
@@ -118,16 +117,16 @@ public class MemberDAO {
 	}
 	
 	// 특정 사원 정보 조회 
-	public Member getDB(int memId) {
+	public Member getDB(String memId) {
 		connDB();
 		String sql = "SELECT * FROM t_member WHERE memberId = ?";
 		Member member = new Member();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, memId);
+			pstmt.setString(1, memId);
 			rs = pstmt.executeQuery();
 			rs.next();
-			member.setMemberId(rs.getInt("memberId"));
+			member.setMemberId(rs.getString("memberId"));
 			member.setPasswd(rs.getString("passwd"));
 			member.setName(rs.getString("name"));
 			member.setJoinDate(rs.getDate("joinDate"));
@@ -149,7 +148,7 @@ public class MemberDAO {
 			pstmt.setString(1, member.getPasswd());
 			pstmt.setString(2, member.getName());
 			pstmt.setString(3, member.getGender());
-			pstmt.setInt(4, member.getMemberId());
+			pstmt.setString(4, member.getMemberId());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -161,12 +160,12 @@ public class MemberDAO {
 	}
 	
 	// 사원 정보 삭제
-	public boolean delete(int memId) {
+	public boolean delete(String memId) {
 		connDB();
 		String sql = "DELETE FROM t_member WHERE memberId = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, memId);
+			pstmt.setString(1, memId);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -178,12 +177,12 @@ public class MemberDAO {
 	}
 	
 	// 로그인
-	public int login(int memId, String pwd) {
+	public int login(String memId, String pwd) {
 		connDB();
 		String sql = "SELECT memberId, passwd FROM t_member WHERE memberId = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, memId);
+			pstmt.setString(1, memId);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {	// 아이디 일치 	
 				String dbPw = rs.getString("passwd");	//	db에 저장된 비번

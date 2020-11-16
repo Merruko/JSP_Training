@@ -26,7 +26,7 @@
 <body>
 	<div id="container">
 		<h2>회원 등록</h2>
-			<p>회원번호 : <%=member.getMemberId() %>
+			<p>아이디 : <%=member.getMemberId() %>
 			<p>비밀번호 : <%=member.getPasswd() %>
 			<p>이름 : <%=member.getName() %>
 			<p>성별 : <%=member.getGender() %>

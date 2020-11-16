@@ -7,7 +7,7 @@ public class Member implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private int memberId;
+	private String memberId;
 	private String passwd;
 	private String name;
 	private Date joinDate;
@@ -15,11 +15,11 @@ public class Member implements Serializable{
 
 	public Member() {}
 
-	public int getMemberId() {
+	public String getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(int memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 

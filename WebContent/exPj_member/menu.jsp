@@ -16,27 +16,27 @@
 </style>
 <body>
 	<%
-		int sessionId = 0;
+		String sessionId = null;
 		if(session.getAttribute("sessionId") != null){
-			sessionId = (Integer)session.getAttribute("sessionId");
+			sessionId = (String)session.getAttribute("sessionId");
 		}else{
 			response.sendRedirect("main.jsp");
 		}
 	%>
 	<nav>
-		<% if(sessionId == 0) { %>
+		<% if(sessionId == null) { %>
 		<ul>
 			<li><a href="main.jsp">홈</a>
 			<li><a href="login.jsp">로그인</a>
 			<li><a href="add.jsp">회원가입</a>
-			<li><a href="#">게시판</a>
+			<li><a href="board-list.jsp">게시판</a>
 		</ul>
 		<% } else {%>
 		<ul>
 			<li><a href="main.jsp">홈</a>
 			<li><a href="logout.jsp">[<%=sessionId %>님] 로그아웃</a>
 			<li><a href="list.jsp">회원목록</a>
-			<li><a href="#">게시판</a>
+			<li><a href="board-list.jsp">게시판</a>
 		</ul>
 		<% } %>
 	</nav>

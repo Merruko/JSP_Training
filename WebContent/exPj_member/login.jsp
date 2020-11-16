@@ -21,7 +21,7 @@
 			<form action="login-process.jsp" method="post">
 				<table>
 					<tr>
-						<td>회원번호</td>
+						<td>아이디</td>
 						<td><input type="text" name="memberId"></td>
 					</tr>
 					<tr>
