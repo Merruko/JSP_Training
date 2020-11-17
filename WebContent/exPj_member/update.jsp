@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 <style type="text/css">
 	body{background: black; color: white;}
 	#container{width: 600px; margin: 0 auto; text-align: center;}
@@ -25,61 +25,53 @@
 	Member member = memDAO.getDB(memId);
 %>
 
-<script type="text/javascript">
-	function checkPwd(){
-		var form = document.updateForm;
-		if(form.passwd.value != form.passwd_cf.value){
-			alert("비밀번호를 동일하게 입력해주세요.");
-			return false;
-		}
-	}
-</script>
+<script src="../RESOURCES/java_script/validation-mem-upd.js"></script>
 
 <body>
 	<jsp:include page="menu.jsp" />
 	<div id="container">
-		<h2><center>회원 정보 수정</center></h2>
+		<h2><center>会員情報修正</center></h2>
 		<hr>
 		<form name="updateForm" action="update-process.jsp?memberId=<%=member.getMemberId() %>" 
-			  method="post" onsubmit="return checkPwd()">
+			  method="post">
 			<table>
 				<tr>
-					<td>아이디</td>
+					<td>ID</td>
 					<td><input type="text" name="memberId" value="<%=member.getMemberId()%>" style="background-color:grey" readonly></td>
 				</tr>
 				<tr>
-					<td>비밀번호</td>
-					<td><input type="text" name="passwd" style="background-color:white" value="<%=member.getPasswd()%>"></td>
+					<td>パスワード</td>
+					<td><input type="text" name="passwd" placeholder="何でも 5~12文字 入力" style="background-color:white" value="<%=member.getPasswd()%>"></td>
 				</tr>
 				<tr>
-					<td>비밀번호 확인</td>
+					<td>パスワード確認</td>
 					<td><input type="text" name="passwd_cf" style="background-color:white" value="<%=member.getPasswd()%>"></td>
 				</tr>
 				<tr>
-					<td>이름</td>
+					<td>氏名</td>
 					<td><input type="text" name="name" style="background-color:white" value="<%=member.getName()%>"></td>
 				</tr>
 				<tr>
-					<td>성별</td>
+					<td>性別</td>
 					<td>
-						<% if(member.getGender().equals("남")){ %>
-						<input type="radio" name="gender" value="남" checked>남
-						<input type="radio" name="gender" value="여">여
+						<% if(member.getGender().equals("男")){ %>
+						<input type="radio" name="gender" value="男" checked>男
+						<input type="radio" name="gender" value="女">女
 						<% }else{ %>
-						<input type="radio" name="gender" value="남">남
-						<input type="radio" name="gender" value="여" checked>여
+						<input type="radio" name="gender" value="男">男
+						<input type="radio" name="gender" value="女" checked>女
 						<% } %>
 					</td>
 				</tr>
 				<tr>
-					<td>가입일</td>
+					<td>加入日</td>
 					<td><input type="date" name="joinDate" value="<%=member.getJoinDate()%>" style="background-color:grey" readonly></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="저장">
-						<input type="reset" value="리셋">
-						<input type="button" value="취소" onclick="history.back(-1);">
+						<input type="button" value="登録" onclick="checkUpdForm()">
+						<input type="reset" value="書き直し">
+						<input type="button" value="取り消し" onclick="history.back(-1);">
 					</td>
 				</tr>
 			</table>	

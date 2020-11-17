@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 <style type="text/css">
 	body{background: black; color: white;}
 	#container{width: 600px; margin: 0 auto; text-align: center;}
@@ -35,51 +35,51 @@
 		}
 	%>
 	<div id="container">
-		<h2><center>회원 정보</center></h2>
+		<h2><center>会員情報</center></h2>
 		<hr>
 		<table>
 			<tr>
-				<td>아이디</td>
+				<td>ID</td>
 				<td><input type="text" name="memberId" style="background-color:grey" value="<%=member.getMemberId()%>" readonly></td>
 			</tr>
 			<tr>
-				<td>비밀번호</td>
+				<td>パスワード</td>
 				<td><input type="password" name="passwd" style="background-color:white" value="<%=member.getPasswd()%>" readonly></td>
 			</tr>
 			<tr>
-				<td>비밀번호 확인</td>
+				<td>パスワード確認</td>
 				<td><input type="password" name="passwd_cf" style="background-color:white" value="<%=member.getPasswd() %>" readonly></td>
 			</tr>
 			<tr>
-				<td>이름</td>
+				<td>氏名</td>
 				<td><input type="text" name="name" style="background-color:white" value="<%=member.getName()%>" readonly></td>
 			</tr>
 			<tr>
-				<td>성별</td>
+				<td>性別</td>
 				<td>
-					<% if(member.getGender().equals("남")){ %>
-					<input type="radio" name="gender" value="남" onclick="return(false);" checked>남
-					<input type="radio" name="gender" value="여" onclick="return(false);">여
+					<% if(member.getGender().equals("男")){ %>
+					<input type="radio" name="gender" value="男" onclick="return(false);" checked>男
+					<input type="radio" name="gender" value="女" onclick="return(false);">女
 					<% }else{ %>
-					<input type="radio" name="gender" value="남" onclick="return(false);">남
-					<input type="radio" name="gender" value="여" onclick="return(false);" checked>여
+					<input type="radio" name="gender" value="男" onclick="return(false);">男
+					<input type="radio" name="gender" value="女" onclick="return(false);" checked>女
 					<% } %>
 				</td>
 			</tr>
 			<tr>
-				<td>가입일</td>
+				<td>加入日</td>
 				<td><input type="date" name="joinDate" style="background-color:grey" value="<%=member.getJoinDate()%>" readonly></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				    <input type="button" value="목록" onClick="location.href='list.jsp'">
 				<%
 					String dbId = member.getMemberId();
 					if(sessionId.equals(dbId)){
 				%>
-				    <input type="button" value="수정" onClick="location.href='update.jsp?memberId=<%=member.getMemberId() %>'">
-				    <input type="button" value="탈퇴" onClick="if(confirm('정말로 탈퇴하시겠습니까?')){location.href='delete.jsp?memberId=<%=member.getMemberId() %>';}">
+				    <input type="button" value="修正" onClick="location.href='update.jsp?memberId=<%=member.getMemberId() %>'">
+				    <input type="button" value="脱退" onClick="if(confirm('本当に脱退しますか？')){location.href='delete.jsp?memberId=<%=member.getMemberId() %>';}">
 				<% } %>
+				    <input type="button" value="リストへ" onClick="location.href='list.jsp'">
 				</td>
 			</tr>
 		</table>			

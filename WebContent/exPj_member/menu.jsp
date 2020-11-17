@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 </head>
 <style type="text/css">
 	nav{margin-top: 30px; text-align: right; margin-right:30px;}
@@ -26,17 +26,17 @@
 	<nav>
 		<% if(sessionId == null) { %>
 		<ul>
-			<li><a href="main.jsp">홈</a>
-			<li><a href="login.jsp">로그인</a>
-			<li><a href="add.jsp">회원가입</a>
-			<li><a href="board-list.jsp">게시판</a>
+			<li><a href="main.jsp">ホーム</a>
+			<li><a href="login.jsp">ログイン</a>
+			<li><a href="add.jsp">会員登録</a>
+			<li><a href="board-list.jsp">掲示板</a>
 		</ul>
 		<% } else {%>
 		<ul>
-			<li><a href="main.jsp">홈</a>
-			<li><a href="logout.jsp">[<%=sessionId %>님] 로그아웃</a>
-			<li><a href="list.jsp">회원목록</a>
-			<li><a href="board-list.jsp">게시판</a>
+			<li><a href="main.jsp">ホーム</a>
+			<li><a href="logout.jsp">[<%=sessionId %>님] ログアウト</a>
+			<li><a href="list.jsp">会員リスト</a>
+			<li><a href="board-list.jsp">掲示板</a>
 		</ul>
 		<% } %>
 	</nav>

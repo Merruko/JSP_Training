@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 
 <style type="text/css">
 	body{background: black; color: white;}
@@ -37,11 +37,11 @@
 		}
 	%>
 	<div id="container">
-		<h2>회원 목록</h2>
+		<h2>会員リスト</h2>
 		<hr>
 		<table>
 			<tr>
-				<td>아이디</td><td>비밀번호</td><td>이름</td><td>성별</td><td>가입일</td><td>회원보기</td>
+				<td>ID</td><td>パスワード</td><td>氏名</td><td>性別</td><td>登録日</td><td>詳細</td>
 			</tr>
 			<% for(Member member : memDAO.getListAll()) { %>
 			<tr>
@@ -56,7 +56,7 @@
 				<td><%=member.getName() %></td>
 				<td><%=member.getGender() %></td>
 				<td><%=member.getJoinDate() %></td>
-				<td><a href="view.jsp?memberId=<%=member.getMemberId()%>" class="button">보기</a></td>
+				<td><a href="view.jsp?memberId=<%=member.getMemberId()%>" class="button">閲覧</a></td>
 			</tr>
 			<% } %>
 		</table>			

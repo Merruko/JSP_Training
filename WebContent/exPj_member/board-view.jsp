@@ -7,22 +7,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 <style type="text/css">
 	body{background: black; color: white;}
 	#container{width: 100%; margin: 0 auto; text-align: center;}
 	.title{height: 130px; width: 100%; font-size: 20px; background: red; line-height: 130px; color: black;}
 	table{margin: 0 auto; width: 800px; border-collapse: collapse; text-align: center;}
-	tr, td{border: 1px solid gray; padding: 10px;}
+	tr, td{border: 1px solid #222; padding: 10px;}
+	input[type="text"]{width: 100%; height: 20px;}
+	textarea{width: 100%; height: 350px;}
+	a{text-decoration: none; color: black;}
 </style>
 </head>
 <body>
 
 <%
-	String sessionId = null;	
+	String sessionId = null;	// 세션을 가져옴
 	if(session.getAttribute("sessionId") != null){
 		sessionId = (String)session.getAttribute("sessionId");
 	}	
+	if(sessionId == null){	// 세션이 없다면 (로그인 안했다면)
+		out.println("<script> alert('ログインしてください。'); location.href='login.jsp'; </script>");
+	}
+	
 	int bno = 0;		// 글 번호를 가져옴 
 	if(request.getParameter("bno") != null){
 		bno = Integer.parseInt(request.getParameter("bno"));
@@ -35,33 +42,37 @@
 	<jsp:include page="menu.jsp" />
 	<div id="container">
 		<div class="title">
-			<h1>게시글 내용</h1>
+			<h1>スレッド内容</h1>
 		</div>	
 		<p>
 			<table>
 				<tr>
 					<td>No.</td>
-					<td><input type="text" name="bno" value="<%=board.getBno() %>"></td>
+					<td><input type="text" name="bno" style="background-color:grey" value="<%=board.getBno() %>" readonly></td>
 				</tr>
 				<tr>
 					<td>Title</td>
-					<td><input type="text" name="title" value="<%=board.getTitle() %>"></td>
+					<td><input type="text" name="title" value="<%=board.getTitle() %>" readonly></td>
 				</tr>
 				<tr>
 					<td>Content</td>
-					<td><input type="text" name="content" value="<%=board.getContent() %>"></td>
+					<td><textarea name="content" readonly><%=board.getContent() %></textarea></td>
 				</tr>
 				<tr>
 					<td>Name</td>
-					<td><input type="text" name="memberId" value="<%=board.getMemberId() %>"></td>
+					<td><input type="text" name="memberId" style="background-color:grey" value="<%=board.getMemberId() %>" readonly></td>
 				</tr>
 				<tr>
 					<td>Date</td>
-					<td><input type="text" name="regDate" value="<%=board.getRegDate() %>"></td>
+					<td><input type="text" name="regDate" style="background-color:grey" value="<%=board.getRegDate() %>" readonly></td>
 				</tr>
 				<tr>
-					<td colspan="5">
-						<input type="button" onclick="location.href='board-list.jsp'" value="목록">
+					<td colspan="2">
+						<% if(sessionId != null && sessionId.equals(board.getMemberId())){ %>
+						<input type="button" value="修正" onclick="location.href='board-update.jsp?bno=<%=board.getBno() %>'" >
+						<input type="button" value="削除" onClick="if(confirm('本当に削除しますか？')){location.href='board-delete.jsp?bno=<%=board.getBno() %>';}">
+						<% } %>
+						<input type="button" value="リストへ" onclick="location.href='board-list.jsp'">
 					</td>
 				</tr>
 			</table>

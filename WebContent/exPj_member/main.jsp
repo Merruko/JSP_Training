@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 </head>
 
 <style>
 	body{background: black; color: white;}
 	#container{width: 100%; margin: 0 auto; text-align: center;}
-	.title{height: 140px; font-size: 30px; background: red; line-height: 120px; color: black;}
+	.title{height: 140px; font-size: 30px; background: red; line-height: 140px; color: black;}
 </style>
 
 <body>
@@ -21,7 +21,7 @@
 			<h1>Welcome to Kiki's Management Service</h1>
 		</div>
 		<div>
-			<p><img src="../RESOURCES/main_images/kiki.jpg" width="650" height="350" alt="friends">
+			<p><img src="../RESOURCES/main_images/kiki.jpg" width="650" height="350" alt="kiki">
 			<p>
 			<%
 				Date day = new Date();
@@ -36,7 +36,7 @@
 					hour = hour-12;
 				}
 				String ct = hour + ":" + min + ":" + sec + ":" + am_pm;
-				out.println("현재 접속 시각 : " + ct);
+				out.println("現在の時刻 : " + ct);
 				response.setIntHeader("Refresh", 5);
 			%>
 		</div>

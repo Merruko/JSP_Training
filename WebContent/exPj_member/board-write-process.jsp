@@ -15,10 +15,10 @@
 		sessionId = (String)session.getAttribute("sessionId");
 	}
 	if(sessionId == null){
-		out.println("<script>alert('로그인이 필요합니다.'); location.href='login.jsp'; </script>");
+		out.println("<script>alert('ログインしてください。'); location.href='login.jsp'; </script>");
 	}else{
 		if(board.getTitle() == null || board.getContent() == null){
-			out.println("<script>alert('입력이 되지 않은 항목이 있습니다.'); history.back(); </script>");
+			out.println("<script>alert('入力されてない項目があります。'); history.back(); </script>");
 		}else{
 			BoardDAO dao = new BoardDAO();
 			dao.writing(board.getTitle(), board.getContent(), sessionId);

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 <style type="text/css">
 	#container{width: 600px; margin: 0 auto; text-align: center;}
 </style>
@@ -25,13 +25,13 @@
 
 <body>
 	<div id="container">
-		<h2>회원 등록</h2>
-			<p>아이디 : <%=member.getMemberId() %>
-			<p>비밀번호 : <%=member.getPasswd() %>
-			<p>이름 : <%=member.getName() %>
-			<p>성별 : <%=member.getGender() %>
+		<h2>会員登録</h2>
+			<p>ID : <%=member.getMemberId() %>
+			<p>パスワード : <%=member.getPasswd() %>
+			<p>氏名 : <%=member.getName() %>
+			<p>性別 : <%=member.getGender() %>
 			<hr>
-			<a href="list.jsp">회원 목록 보기</a>
+			<a href="list.jsp">会員リストへ</a>
 	</div>
 </body>
 </html>

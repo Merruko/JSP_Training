@@ -76,7 +76,6 @@ public class BoardDAO {
 			pstmt.setString(2, content);
 			pstmt.setString(3, memberId);
 			pstmt.executeUpdate();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -140,4 +139,37 @@ public class BoardDAO {
 		}
 		return board;
 	}
+	
+	// 게시글 수정하기
+	public void updateBoard(Board board) {
+		connDB();
+		String sql = "UPDATE t_board SET title = ?, content = ? WHERE bno = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getContent());
+			pstmt.setInt(3, board.getBno());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+	
+	// 게시글 삭제하기
+	public boolean deleteBoard(int bno) {
+		connDB();
+		String sql = "DELETE FROM t_board WHERE bno = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 }

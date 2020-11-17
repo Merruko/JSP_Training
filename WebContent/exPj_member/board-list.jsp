@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 <style type="text/css">
 	body{background: black; color: white;}
 	#container{width: 100%; margin: 0 auto; text-align: center;}
@@ -28,7 +28,7 @@
 	<jsp:include page="menu.jsp" />
 	<div id="container">
 		<div class="title">
-			<h1>게시글 목록</h1>
+			<h1>スレッドリスト</h1>
 		</div>	
 		<p>
 			<table>
@@ -48,7 +48,7 @@
 					<% } %>
 					<tr>
 						<td colspan="5">
-							<input type="button" onclick="location.href='board-write.jsp'" value="글쓰기">
+							<input type="button" onclick="location.href='board-write.jsp'" value="スレッド作成">
 					</tr>
 			</table>
 	</div>

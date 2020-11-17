@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 관리 사이트</title>
+<title>Kiki's Management Service</title>
 <style type="text/css">
 	body{background: black; color: white;}
 	#container{width: 600px; margin: 0 auto; text-align: center;}
@@ -16,23 +16,23 @@
 </head>
 <body>
 	<div id="container">
-		<h2>로그인</h2>
+		<h2>ログイン</h2>
 		<hr>
 			<form action="login-process.jsp" method="post">
 				<table>
 					<tr>
-						<td>아이디</td>
+						<td>ID</td>
 						<td><input type="text" name="memberId"></td>
 					</tr>
 					<tr>
-						<td>비밀번호</td>
+						<td>パスワード</td>
 						<td><input type="password" name="passwd"></td>
 					</tr>
 					<tr>
 						<td colspan="2">
-						<input type="submit" value="로그인">
-						<input type="reset" value="리셋">
-						<input type="button" value="취소" onclick="history.back(-1);">
+						<input type="submit" value="ログイン">
+						<input type="reset" value="書き直し">
+						<input type="button" value="取り消し" onclick="history.back(-1);">
 					</tr>
 				</table>			
 			</form>
