@@ -3,8 +3,8 @@
 
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.net.URLDecoder" %>
-<%@ page import="dto.Product" %>
-<%@ page import="dao.ProductRepository" %>
+<%@ page import="shopping.Product" %>
+<%@ page import="shopping.ProductRepository" %>
 
 <%
 	request.setCharacterEncoding("UTF-8");

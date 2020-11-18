@@ -106,7 +106,7 @@
 		<filter-class>filter.LogFileFilter</filter-class>
 		<init-param>
 			<param-name>filename</param-name>
-			<param-value>C:\\logs\\monitor.log</param-value>
+			<param-value>C:\\workspace\\.metadata\\logs\\monitor.log</param-value>
 		</init-param>
 	</filter>
 	
@@ -134,7 +134,7 @@
 		<filter-class>shopping.LogFileFilter</filter-class>
 		<init-param>
 			<param-name>filename</param-name>
-			<param-value>C:\\logs\\webmarket.log</param-value>
+			<param-value>C:\\workspace\\.metadata\\logs\\webmarket.log</param-value>
 		</init-param>
 	</filter>
 	
