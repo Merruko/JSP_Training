@@ -14,7 +14,6 @@
 		String url = "jdbc:mysql://localhost:3306/HRDB?useUnicode=true&characterEncoding=utf8";
 		String user = "root";
 		String pwd = "1234";
-		
 	
 		Class.forName(driver);
 		conn = DriverManager.getConnection(url, user, pwd);

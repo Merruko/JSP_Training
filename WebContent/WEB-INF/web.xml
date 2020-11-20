@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  
+
 	<!-- 서블릿 -->
   
 	<servlet>
@@ -22,58 +22,13 @@
 	<url-pattern>/second</url-pattern>
 	</servlet-mapping>
 	
-    <!-- 세큐리티 -->
-
-	<security-role>
-		<description></description >
-		<role-name>admin</role-name>
-	</security-role>
-	<security-constraint>
-		<display-name>WebMarket Security</display-name>
-		<web-resource-collection>
-			<web-resource-name>WebMarket</web-resource-name>
-			<description></description>
-			<url-pattern>/exPj_shopping/addProduct.jsp</url-pattern>
-		</web-resource-collection>
-		<auth-constraint>
-			<description>권한 관리자명</description>
-			<role-name>admin</role-name>
-		</auth-constraint>
-	</security-constraint>
-	<login-config>
-		<auth-method>FORM</auth-method>
-		<form-login-config>
-			<form-login-page>/exPj_shopping/login.jsp</form-login-page>
-			<form-error-page>/exPj_shopping/login_failed.jsp</form-error-page>
-		</form-login-config>
-	</login-config>
-	
-	<!-- 예외 처리 -->
-	<!-- 따로 에러페이지 임포트 안해주면 해당 코드 오류는 이제 무조건 저 페이지들만 뜸 -->
-	<!-- 500은 따로 임포트 해주면 설정한 특정 페이지 뜨게 할 수 있는데 404는 안됨 -->
-	
-	<display-name>Exception</display-name>  
-	
-	<!-- 404 : 주소의 페이지 파일명 자체가 잘못돼서 연결할 수 없을때 -->
-	
-	<error-page>
-		<error-code>404</error-code>
-		<location>/exPj_shopping/exceptionNoPage.jsp</location>
-	</error-page>
-	
-	<!-- 500 : 주소의 회원번호나 상품번호 등 ? 이후 참조값이 잘못돼서 연결할 수 없을때 --> 
-	
-	<error-page>
-		<error-code>500</error-code>
-		<location>/exPj_shopping/exceptionNoProductId.jsp</location>
-	</error-page>
-	
 	<!-- 폼 인증 필터 처리 -->
 	
 	<filter>
 		<filter-name>Filter</filter-name>
 		<filter-class>filter.AuthenFilter</filter-class>
 	</filter>
+	
 	<filter-mapping>
 		<filter-name>Filter</filter-name>
 		<url-pattern>/ex19_filter/filter-process.jsp</url-pattern>
@@ -113,34 +68,6 @@
 	<filter-mapping>
 		<filter-name>Filter3</filter-name>
 		<url-pattern>/ex19_filter/filter2-process.jsp</url-pattern>
-	</filter-mapping>
-	
-	<!-- WebMarket 필터 -->
-	
-	<filter>
-		<filter-name>LogFilter</filter-name>
-		<filter-class>shopping.LogFilter</filter-class>
-	</filter>
-	
-	<filter-mapping>
-		<filter-name>LogFilter</filter-name>
-		<url-pattern>/exPj_shopping/*</url-pattern>
-	</filter-mapping>
-	
-	<!-- WebMarket 필터 : 로그 파일 기록 -->
-	
-	<filter>
-		<filter-name>LogFileFilter</filter-name>
-		<filter-class>shopping.LogFileFilter</filter-class>
-		<init-param>
-			<param-name>filename</param-name>
-			<param-value>C:\\workspace\\.metadata\\logs\\webmarket.log</param-value>
-		</init-param>
-	</filter>
-	
-	<filter-mapping>
-		<filter-name>LogFileFilter</filter-name>
-		<url-pattern>/exPj_shopping/*</url-pattern>
 	</filter-mapping>
 	
 </web-app>

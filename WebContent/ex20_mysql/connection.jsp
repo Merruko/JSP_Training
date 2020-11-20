@@ -7,6 +7,7 @@
 <title>MySQL Connection</title>
 </head>
 <body>
+
 	<%
 		Connection conn = null;
 		String driver = "com.mysql.jdbc.Driver";
@@ -25,5 +26,6 @@
 				conn.close();
 		}
 	%>
+	
 </body>
 </html>
