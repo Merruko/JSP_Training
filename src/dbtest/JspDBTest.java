@@ -23,7 +23,7 @@ public class JspDBTest {
 			conn = DriverManager.getConnection(url, user, pwd);
 			System.out.println("HRDB에 접속 성공");
 			
-//			HRDB의 사원 추가
+			//HRDB의 사원 추가
 			String query2 = "INSERT INTO t_employee VALUES (2003, 'xyz567', '최부장', SYSDATE)";
 			stmt = conn.createStatement();
 			stmt.executeUpdate(query2);

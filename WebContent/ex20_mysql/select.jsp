@@ -27,13 +27,13 @@
 					String id = rs.getString("id");
 					String pw = rs.getString("passwd");
 					String name = rs.getString("name");
-			%>
+		%>
 			<tr>
 				<td><%=id %></td>
 				<td><%=pw %></td>
 				<td><%=name %></td>
 			</tr>
-			<%	
+		<%	
 				}
 			}catch(Exception e){
 				e.printStackTrace();
