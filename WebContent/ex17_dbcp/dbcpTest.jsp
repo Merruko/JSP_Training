@@ -17,7 +17,7 @@
 	ds = (DataSource)envCtx.lookup("jdbc/oracle");
        
 	conn = ds.getConnection();  //커넥션 얻어오기
-	String sql = "INSERT INTO dbcp_test VALUES (?, ?)";
+	String sql = "INSERT INTO j_dbcp VALUES (?, ?)";
 	
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, request.getParameter("name"));
@@ -58,7 +58,7 @@
 <%
 	try{
 	// 자료 조회
-	String sql = "SELECT name, email FROM dbcp_test";
+	String sql = "SELECT name, email FROM j_dbcp";
 	pstmt = conn.prepareStatement(sql);
       		
 	ResultSet rs = pstmt.executeQuery();

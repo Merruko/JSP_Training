@@ -1,11 +1,11 @@
 package filter;
-/*
+
 import javax.servlet.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-*/
-public class InitParamFilter /*implements Filter*/ {
-	/*
+
+public class InitParamFilter implements Filter {
+	
 	private FilterConfig filterConfig = null;
 
 	@Override
@@ -45,5 +45,5 @@ public class InitParamFilter /*implements Filter*/ {
 	public void destroy( ){
 		System.out.println("Filter2 해제...");
 	}
-	*/
+	
 }
